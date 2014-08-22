@@ -46,8 +46,8 @@ RUN echo 'aozora ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers.d/aozora
 RUN cp -p /usr/share/zoneinfo/Japan /etc/localtime
 
 # sshd
-RUN /etc/init.d/sshd start
-RUN /etc/init.d/sshd stop
+RUN service sshd start
+RUN service sshd stop
 
 # redis
 RUN /etc/init.d/redis start
@@ -69,6 +69,7 @@ WORKDIR /home/aozora/myhubot
 ## sushi-yuki
 RUN npm install -g hubot-misawa
 RUN npm install -g hubot-meshi
+RUN npm install -g hubot-totsuzen
 RUN cp external-scripts.json external-scripts.json.back
 ADD external-scripts.json /home/aozora/myhubot/external-script.json
 RUN ./bin/hubot
