@@ -1,15 +1,16 @@
 # DOCKER-VERSION 0.11.1
 # VERSION 0.0.1
 
-FROM centos
+FROM centos7
 
 MAINTAINER aozora0000
 
 # sysconfig network
 RUN echo "NETWORKING=yes" > /etc/sysconfig/network
 
-RUN rpm -Uvh http://ftp-srv2.kddilabs.jp/Linux/distributions/fedora/epel/6/x86_64/epel-release-6-8.noarch.rpm
+RUN rpm -Uvh http://ftp.riken.jp/Linux/fedora/epel/beta/7/x86_64/epel-release-7-0.2.noarch.rpm
 # yum
+RUN yum update -y
 RUN yum install -y passwd
 RUN yum install -y sudo
 RUN yum install -y gcc
