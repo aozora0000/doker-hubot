@@ -10,7 +10,6 @@ RUN echo "NETWORKING=yes" > /etc/sysconfig/network
 
 RUN rpm -Uvh http://ftp-srv2.kddilabs.jp/Linux/distributions/fedora/epel/6/x86_64/epel-release-6-8.noarch.rpm
 # yum
-RUN yum update -y
 RUN yum install -y passwd
 RUN yum install -y sudo
 RUN yum install -y gcc
