@@ -8,7 +8,7 @@ MAINTAINER aozora0000
 # sysconfig network
 RUN echo "NETWORKING=yes" > /etc/sysconfig/network
 
-RUN rpm -Uvh http://download.fedoraproject.org/pub/epel/6/i386/epel-release-6-8.noarch.rpm
+RUN rpm -Uvh http://ftp-srv2.kddilabs.jp/Linux/distributions/fedora/epel/6/x86_64/epel-release-6-8.noarch.rpm
 # yum
 RUN yum update -y
 RUN yum install -y passwd
@@ -67,11 +67,10 @@ USER root
 WORKDIR /home/aozora/myhubot
 
 ## sushi-yuki
-RUN npm install -g hubot-sushiyuki
-RUN cp package.json package.json.back
-RUN sed -ri 's/">= 2.5.0 < 3.0.0"/">= 2.5.0 < 3.0.0",\n    "hubot-sushiyuki": "0.0.2"/g' /home/aozora/myhubot/package.json
+RUN npm install -g hubot-misawa
+RUN npm install -g hubot-meshi
 RUN cp external-scripts.json external-scripts.json.back
-RUN echo '["hubot-sushiyuki"]' > external-scripts.json
+ADD external-scripts.json /home/aozora/myhubot/external-script.json
 RUN ./bin/hubot
 
 EXPOSE 22
