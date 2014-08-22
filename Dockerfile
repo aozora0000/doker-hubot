@@ -46,8 +46,7 @@ RUN echo 'aozora ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers.d/aozora
 RUN cp -p /usr/share/zoneinfo/Japan /etc/localtime
 
 # sshd
-RUN /sbin/service sshd start
-RUN /sbin/service sshd stop
+RUN /etc/init.d/sshd start
 
 # redis
 RUN /etc/init.d/redis start
