@@ -1,7 +1,7 @@
 # DOCKER-VERSION 0.11.1
 # VERSION 0.0.1
 
-FROM centos7
+FROM centos/centos7
 
 MAINTAINER aozora0000
 
